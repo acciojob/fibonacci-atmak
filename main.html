@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-
 <html>
-
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
-
 <body>
-	<h2>Fibonacci Series</h2>
+
+<h2>Fibonacci Series</h2>
 
 <p>Click the "Try it" button to calculate the nth Fibonacci number:</p>
 
@@ -23,16 +18,12 @@ function myFunction() {
   else {
     let fibo = [0, 1];
     for (let i = 2; i <= n; i++) {
-      // calculate the next fibonacci number
-      // update the last two fibonacci numbers
+      fibo[i] = fibo[i-1] + fibo[i-2];
     }
     document.getElementById("demo").innerHTML = fibo[n];
   }
 }
-
-    
 </script>
 
 </body>
-
 </html>
