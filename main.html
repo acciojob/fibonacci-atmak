@@ -2,27 +2,31 @@
 <html>
 <body>
 
-<h2>Fibonacci Series</h2>
+const express = require('express');
+const app = express();
+app.use(express.json());
 
-<p>Click the "Try it" button to calculate the nth Fibonacci number:</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-  let n = prompt("Enter the position of the Fibonacci number you want to find:");
+function fibonacci(n) {
   if (n <= 1)
-    document.getElementById("demo").innerHTML = n;
-  else {
-    let fibo = [0, 1];
-    for (let i = 2; i <= n; i++) {
-      fibo[i] = fibo[i-1] + fibo[i-2];
-    }
-    document.getElementById("demo").innerHTML = fibo[n];
+    return n;
+  let fibo = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    fibo[i] = fibo[i-1] + fibo[i-2];
   }
+  return fibo[n];
 }
+
+app.post('/fibonacci', (req, res) => {
+  const number = req.body.n;
+  if (number < 0 || number > 50) {
+    res.status(400).send('Invalid input. Please enter a number between 0 and 50.');
+  } else {
+    const result = fibonacci(number);
+    res.status(200).send({ message: result });
+  }
+});
+
+app.listen(3000, () => console.log('Server is running on port 3000...'));
 </script>
 
 </body>
