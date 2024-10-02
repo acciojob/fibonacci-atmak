@@ -7,7 +7,29 @@
 </head>
 
 <body>
-	<!-- the entire body must be written by student -->
+	<h2>Fibonacci Series</h2>
+
+<p>Click the "Try it" button to calculate the nth Fibonacci number:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let n = prompt("Enter the position of the Fibonacci number you want to find:");
+  if (n <= 1)
+    document.getElementById("demo").innerHTML = n;
+  else {
+    let fibo = [0, 1];
+    for (let i = 2; i <= n; i++) {
+      // calculate the next fibonacci number
+      // update the last two fibonacci numbers
+    }
+    document.getElementById("demo").innerHTML = fibo[n];
+  }
+}
+
     <script type="text/javascript" src="./script.js">
 </script>
 
